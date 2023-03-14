@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Progate-Latihan-Manipulasi-DOM</title>
+</head>
+<body>
+	<h1>Get a FizzBuzz Result!</h1>
+	<span>Type a number : </span><input type="text" name="" id="inputan-number" value=""> <input id="btn-showResult" type="button" value="Click here!">
+	<hr>
+	<div class="result">
+
+	</div>
+
+	<script>
+		var number = document.getElementById('inputan-number');
+		const btnSubmmit = document.getElementById('btn-showResult');
+		var divResult = document.getElementsByClassName('result')[0];
+		btnSubmmit.addEventListener('click', function () {
+			var p = document.createElement("p");
+			let val = number.value;
+			console.log(val);
+			if (val === 0 || val === '' || val === NaN){
+				p.textContent = "Invalid input";
+				p.style.color = 'red';
+			} else if (val % 3 === 0 && val % 5 === 0) {
+				p.textContent = "FizzBuzz!";
+			} else if (val % 3 === 0) {
+				p.textContent = "Fizz!";
+			} else if (val % 5 === 0) {
+				p.textContent = "Buzz!";
+			} else {
+				p.textContent = val;
+			}
+
+			return divResult.append(p);
+		});
+	</script>
+</body>
+</html>
